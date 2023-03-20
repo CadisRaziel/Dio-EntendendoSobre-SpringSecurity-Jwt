@@ -62,6 +62,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //HABILITANDO ACESSAR O H2-DATABSE NA WEB PARA VISUALIZAR EM UM CONSOLE
         //como a aplicação esta segura precisamos fazer de um jeito para poder acessar sem precisar de credencial
         //para conseguimos importar o 'WebServelet' é preciso ir la na dependencia do h2 e remover o '<scope>runtime</scope>'
+
+        //http://localhost:8080/h2-console -> URL para acessar o banco de dados WEB
+        //caso der erro, verifique o JDBC URL, se tive diferente do application.properties coloque essa igual ta la 'jdbc:h2:mem:testdb'
         ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
         registrationBean.addUrlMappings("/h2-console/*");
         return registrationBean;
